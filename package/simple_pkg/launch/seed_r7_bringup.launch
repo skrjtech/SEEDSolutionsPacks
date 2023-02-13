@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- manin controller -->
+  <arg name="robot_model" default="typef"/>
+  <include file="$(find seed_r7_bringup)/launch/seed_r7_bringup.launch">
+    <arg name="robot_model" value="$(arg robot_model)"/>
+  </include>
+
+  <!-- Navigation Stack -->
+  <include file="$(find seed_r7_navigation)/launch/wheel_with_dummy.launch" />
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find seed_r7_bringup)/rviz.rviz" required="true" />
+
+</launch>

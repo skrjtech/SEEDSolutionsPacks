@@ -1,0 +1,13 @@
+{
+	"name": "SeedNoid",
+	"dockerComposeFile": "../.docker/docker-compose.yml",
+	"service": "seed",
+	"workspaceFolder": "/home/melodic/catkin_ws",
+	"customizations": {
+		"vscode": {	
+			"extensions": [
+				"josetr.cmake-language-support-vscode"
+			]
+		}
+	}
+}

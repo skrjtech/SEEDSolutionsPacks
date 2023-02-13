@@ -1,0 +1,25 @@
+version: '3.9'
+services:
+  seed:
+    build: 
+      context: ../.docker
+      dockerfile: Dockerfile
+    image: skrjtech/seed-noid:melodic
+    container_name: seed-noid
+    tty: true
+    restart: always
+    privileged: true
+    environment:
+      - DISPLAY=$DISPLAY
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ..:/home/melodic/catkin_ws/src/public
+    working_dir: /home/melodic/catkin_ws
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    # network_mode: host
